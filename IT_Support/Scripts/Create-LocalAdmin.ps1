@@ -8,7 +8,7 @@ If (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 
 # Account details
 $username = "local_admin"
-$passwordPlain = '$Admin123' # Account details
+$passwordPlain = '$Admin123' # Change to your password
 $password = ConvertTo-SecureString $passwordPlain -AsPlainText -Force
 
 # Create user if not exists
@@ -21,12 +21,5 @@ if (Get-LocalUser -Name $username -ErrorAction SilentlyContinue) {
     Write-Host "User '$username' added to Administrators group." -ForegroundColor Green
 }
 
-# Set time zone to Eastern Standard Time
-try {
-    tzutil /s "Eastern Standard Time"
-    Write-Host "`Time zone set to Eastern Standard Time."
-} catch {
-    Write-Warning "Failed to set time zone: $($_.Exception.Message)"
-}
 
 pause
