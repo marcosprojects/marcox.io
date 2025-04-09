@@ -8,7 +8,7 @@ If (-not ([Security.Principal.WindowsPrincipal] [Security.Principal.WindowsIdent
 
 # Account details
 $username = "local_admin"
-$passwordPlain = '$Office' # Account details
+$passwordPlain = '$Admin123' # Account details
 $password = ConvertTo-SecureString $passwordPlain -AsPlainText -Force
 
 # Create user if not exists
@@ -24,7 +24,7 @@ if (Get-LocalUser -Name $username -ErrorAction SilentlyContinue) {
 # Set time zone to Eastern Standard Time
 try {
     tzutil /s "Eastern Standard Time"
-    Write-Host "`n🕒 Time zone set to Eastern Standard Time." -ForegroundColor Cyan
+    Write-Host "`Time zone set to Eastern Standard Time."
 } catch {
     Write-Warning "Failed to set time zone: $($_.Exception.Message)"
 }
